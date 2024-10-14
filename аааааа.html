@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Определение поколения компьютера по модели EBM</title>
+</head>
+<body>
+
+<h1>Определение поколения компьютера</h1>
+
+<label for="ebmModel">Выберите модель EBM:</label><br>
+<select id="ebmModel">
+  <option value="IBM 1401">IBM 1401</option>
+  <option value="IBM 7090">IBM 7090</option>
+  <option value="IBM 1620">IBM 1620</option>
+  <option value="IBM 1410">IBM 1410</option>
+  <option value="IBM 7070">IBM 7070</option>
+  <option value="IBM 1400">IBM 1400</option>
+  <option value="IBM System/360">IBM System/360</option>
+  <option value="IBM System/370">IBM System/370</option>
+  <option value="IBM 1130">IBM 1130</option>
+  <option value="IBM PC">IBM PC</option>
+  <option value="IBM PS/2">IBM PS/2</option>
+  <option value="IBM AS/400">IBM AS/400</option>
+  <option value="IBM PC/AT">IBM PC/AT</option>
+</select><br>
+
+<button onclick="checkEbmModel()">Проверить</button>
+
+<p id="generation"></p>
+<p id="years"></p>
+<p id="base"></p>
+
+<script>
+function checkEbmModel() {
+  let ebmModel = document.getElementById("ebmModel").value;
+  let generationElement = document.getElementById("generation");
+  let yearsElement = document.getElementById("years");
+  let baseElement = document.getElementById("base");
+
+  switch (ebmModel) {
+    case "IBM 1401":
+    case "IBM 7090":
+    case "IBM 1620":
+      generationElement.innerHTML = "Поколение: 1";
+      yearsElement.innerHTML = "Годы выпуска: 1946-1959";
+      baseElement.innerHTML = "Элементарная база: Электронные лампы";
+      break;
+    case "IBM 1410":
+    case "IBM 7070":
+    case "IBM 1400":
+      generationElement.innerHTML = "Поколение: 2";
+      yearsElement.innerHTML = "Годы выпуска: 1959-1964";
+      baseElement.innerHTML = "Элементарная база: Транзисторы";
+      break;
+    case "IBM System/360":
+    case "IBM System/370":
+    case "IBM 1130":
+      generationElement.innerHTML = "Поколение: 3";
+      yearsElement.innerHTML = "Годы выпуска: 1964-1971";
+      baseElement.innerHTML = "Элементарная база: Интегральные схемы";
+      break;
+    case "IBM PC":
+    case "IBM PS/2":
+      generationElement.innerHTML = "Поколение: 4";
+      yearsElement.innerHTML = "Годы выпуска: 1971-1981";
+      baseElement.innerHTML = "Элементарная база: Большие интегральные схемы";
+      break;
+    case "IBM AS/400":
+    case "IBM PC/AT":
+      generationElement.innerHTML = "Поколение: 5";
+      yearsElement.innerHTML = "Годы выпуска: 1981-настоящее время";
+      baseElement.innerHTML = "Элементарная база: Сверхбольшие интегральные схемы";
+      break;
+    default:
+      generationElement.innerHTML = "Модель EBM не найдена или не соответствует известным поколениям.";
+      yearsElement.innerHTML = "";
+      baseElement.innerHTML = "";
+  }
+}
+</script>
+
+</body>
+</html>
